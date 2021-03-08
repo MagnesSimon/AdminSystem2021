@@ -19,6 +19,7 @@ ns				IN	A	51.210.44.117
 www				IN	A	51.210.44.117
 @				IN	A	51.210.44.117
 b2b				IN	CNAME	www
+intranet			IN	CNAME	www
 
 sip				IN	A	135.125.101.241
 _sip._udp			SRV	0	0	5060	sip
