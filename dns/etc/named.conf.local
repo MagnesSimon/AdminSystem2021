@@ -21,3 +21,15 @@ view external{
                 file "/etc/bind/db.wt1-5.ephec-ti.be";
         };
 };
+
+// reseau interne
+view internal {
+	match-clients {ip_interne;};
+	recursion yes;
+	allow-recursion {ip_interne;};
+	zone "wt1-5.ephec-ti.be IN {
+		type master;
+		file "/etc/bind/db.intranet.wt1-5.ephec-ti.be";
+	};
+};
+
