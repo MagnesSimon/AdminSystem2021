@@ -1,8 +1,8 @@
 # Simon Magnes & François Temmerman & Thomas Namurois
 
-$ORIGIN wt1-5.ephec-ti.be.
+$ORIGIN wtl1-5.ephec-ti.be.
 $TTL	3600
-wt1-5.ephec-ti.be.	IN	SOA	ns.wt1-5.ephec-ti.be. HE201558@students.ephec.be. (
+wtl1-5.ephec-ti.be.	IN	SOA	ns.wtl1-5.ephec-ti.be. HE201558@students.ephec.be. (
 
 		         2019031001	; Serial
 			 3600		; Refresh
@@ -14,7 +14,7 @@ wt1-5.ephec-ti.be.	IN	SOA	ns.wt1-5.ephec-ti.be. HE201558@students.ephec.be. (
 	IN	 A	 51.210.44.117
 @       IN       MX      10  mail
 
-wt1-5.ephec-ti.be.		IN	NS	ns.wt1-5.ephec-ti.be.
+wtl1-5.ephec-ti.be.		IN	NS	ns.wtl1-5.ephec-ti.be.
 ns				IN	A	51.210.44.117
 www				IN	A	51.210.44.117
 @				IN	A	51.210.44.117
