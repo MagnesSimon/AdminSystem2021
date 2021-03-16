@@ -26,14 +26,13 @@ RUN ln -s /etc/apache2/sites-available/b2b.wtl1-5.ephec-ti.be.conf /etc/apache2/
 RUN ln -s /etc/apache2/sites-available/intranet.wtl1-5.ephec-ti.be.conf /etc/apache2/sites-enabled
 
 
-RUN mkdir /var/www/b2b.wtl1-5.ephec-ti.be
-RUN mkdir /var/www/wtl1-5.ephec-ti.be
-RUN mkdir /var/www/intranet.wtl1-5.ephec-ti.be
+RUN mkdir /var/www/b2b
+#RUN mkdir /var/www/wtl1-5.ephec-ti.be
+RUN mkdir /var/www/intranet
 
-
-COPY /etc/www/public/index.html /var/www/wtl1-5.ephec-ti.be/index.html
-COPY /etc/www/b2b/index.html /var/www/b2b.wtl1-5.ephec-ti.be/index.html
-COPY /etc/www/interne/index.html /var/www/intranet.wtl1-5.ephec-ti.be/index.html
+COPY /etc/www/public/index.html /var/www/index.html
+COPY /etc/www/b2b/index.html /var/www/b2b/index.html
+COPY /etc/www/interne/index.html /var/www/intranet/index.html
 
 #Spécifie sur quel numéro de port le container doit faire tourner le processus
 EXPOSE 80
