@@ -1,4 +1,4 @@
-# Groupe 1 - Simon Magnes & François Temmerman -test
+# Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
 
 #A partir d'une image ubuntu
 FROM ubuntu:18.04
@@ -26,13 +26,14 @@ RUN ln -s /etc/apache2/sites-available/b2b.wtl1-5.ephec-ti.be.conf /etc/apache2/
 RUN ln -s /etc/apache2/sites-available/intranet.wtl1-5.ephec-ti.be.conf /etc/apache2/sites-enabled
 
 
-RUN mkdir /var/www/b2b
-#RUN mkdir /var/www/wtl1-5.ephec-ti.be
-RUN mkdir /var/www/intranet
+RUN mkdir /var/www/b2b.wtl1-5.ephec-ti.be
+RUN mkdir /var/www/wtl1-5.ephec-ti.be
+RUN mkdir /var/www/intranet.wtl1-5.ephec-ti.be
 
-COPY /etc/www/public/index.html /var/www/index.html
-COPY /etc/www/b2b/index.html /var/www/b2b/index.html
-COPY /etc/www/interne/index.html /var/www/intranet/index.html
+
+COPY /etc/www/public/index.html /var/www/html/index.html
+COPY /etc/www/b2b/index.html /var/www/html/b2b.wtl1-5.ephec-ti.be/index.html
+COPY /etc/www/interne/index.html /var/www/html/intranet.wtl1-5.ephec-ti.be/index.html
 
 #Spécifie sur quel numéro de port le container doit faire tourner le processus
 EXPOSE 80
