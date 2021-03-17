@@ -17,7 +17,9 @@ RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 
 # On copie les fichier de configuration
 
-COPY etc/db.wtl1-5.ephec-ti.be /etc/bind/
+COPY etc/db.l1-5.ephec-ti.be /etc/bind/
+COPY etc/db.intranet.l1-5.ephec-ti.be /etc/bind/
+
 COPY etc/named.conf /etc/bind/
 COPY etc/named.conf.local /etc/bind/
 COPY etc/named.conf.options /etc/bind/
