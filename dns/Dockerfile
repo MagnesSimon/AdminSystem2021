@@ -2,9 +2,11 @@
 
 FROM ubuntu:18.04
 
-# Mise à jour du système
-RUN apt-get update
-Run apt-get upgrade
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+
+RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive 
 
 # Installation de bind9
 RUN apt-get install -y bind9
@@ -18,7 +20,7 @@ RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 # On copie les fichier de configuration
 
 COPY etc/db.l1-5.ephec-ti.be /etc/bind/
-COPY etc/db.intranet.l1-5.ephec-ti.be /etc/bind/
+COPY etc/db.internal.l1-5.ephec-ti.be /etc/bind/
 
 COPY etc/named.conf /etc/bind/
 COPY etc/named.conf.local /etc/bind/
