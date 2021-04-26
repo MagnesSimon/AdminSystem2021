@@ -1,0 +1,35 @@
+# Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
+
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+acl ip_interne {
+        localhost;
+        51.210.44.117;
+};
+
+// reseau externe
+view external{
+        match-clients{ any;};
+        zone "l1-5.ephec-ti.be" IN {
+                type master;
+                file "/etc/bind/db.l1-5.ephec-ti.be";
+        };
+};
+
+// reseau interne
+view internal {
+	match-clients {ip_interne;};
+	recursion yes;
+	allow-recursion {ip_interne;};
+	zone "l1-5.ephec-ti.be" IN {
+		type master;
+		file "/etc/bind/db.internal.l1-5.ephec-ti.be";
+	};
+};
+
