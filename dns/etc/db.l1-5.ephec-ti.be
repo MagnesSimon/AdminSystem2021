@@ -1,5 +1,3 @@
-# Simon Magnes & François Temmerman & Thomas Namurois
-
 $ORIGIN l1-5.ephec-ti.be.
 $TTL	3600
 l1-5.ephec-ti.be.	IN	SOA	ns.l1-5.ephec-ti.be. HE201558@students.ephec.be. (
@@ -19,7 +17,7 @@ ns				IN	A	51.210.44.117
 www				IN	A	51.210.44.117
 @				IN	A	51.210.44.117
 b2b				IN	CNAME	www
-intranet			IN	CNAME	www
+#intranet			IN	CNAME	www
 
 sip				IN	A	135.125.101.241
 _sip._udp			SRV	0	0	5060	sip

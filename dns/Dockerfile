@@ -1,5 +1,3 @@
-# Groupe 5 - Simon Magnes & François Temmerman & Thomas Namurois
-
 FROM ubuntu:18.04
 
 
@@ -21,6 +19,7 @@ RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 
 COPY etc/db.l1-5.ephec-ti.be /etc/bind/
 COPY etc/db.internal.l1-5.ephec-ti.be /etc/bind/
+#COPY etc/db.l1-5.ephec-ti.be /etc/bind/internal/
 
 COPY etc/named.conf /etc/bind/
 COPY etc/named.conf.local /etc/bind/
