@@ -8,16 +8,10 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-acl ip_interne {
-	localhost;
-        127.0.0.0;
-        51.210.44.117;
-};
-
 zone "l1-5.ephec-ti.be" IN {
 	type master;
 	file "/etc/bind/db.l1-5.ephec-ti.be";
-	allow-querry {ip_interne};
+
 };
 
 

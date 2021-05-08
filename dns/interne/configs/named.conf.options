@@ -1,7 +1,20 @@
 # Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
 
+        acl "ip_interne" {
+        localhost;    # ns1 - can be set to localhost
+        172.17.0.2;    # ns2
+        51.210.44.117;  # host1
+        };
+
+
 options {
+
         directory "/var/cache/bind";
+	
+	recursion yes;                 # enables resursive queries
+        allow-recursion { ip_interne; };  # allows recursive queries from "trusted" clients
+        listen-on { any; };   # ns1 private IP address - listen on private network only
+        allow-transfer { ip_interne; };
 
         // If there is a firewall between you and nameservers you want
         // to talk to, you may need to fix the firewall to allow multiple
@@ -26,8 +39,8 @@ options {
         auth-nxdomain no;    # conform to RFC1035
         listen-on-v6 { any; };
 
-	allow-querry {localhost; 192.168.1.9};
-
+	#allow-querry {localhost; 51.210.44.117;};
+	
 };
 
 
