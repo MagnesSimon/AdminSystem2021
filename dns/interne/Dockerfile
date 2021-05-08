@@ -18,13 +18,13 @@ RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 
 # On copie les fichier de configuration
 
-COPY etc/db.l1-5.ephec-ti.be /etc/bind/
+COPY configs/db.l1-5.ephec-ti.be /etc/bind/
 
 #COPY etc/db.l1-5.ephec-ti.be /etc/bind/internal/
 
-COPY etc/named.conf /etc/bind/
-COPY etc/named.conf.local /etc/bind/
-COPY etc/named.conf.options /etc/bind/
+COPY configs/named.conf /etc/bind/
+COPY configs/named.conf.local /etc/bind/
+COPY configs/named.conf.options /etc/bind/
 #COPY etc/named.conf.default-zones /etc/bind
 
 # Run eternal loop
