@@ -30,6 +30,6 @@ COPY configs/named.conf.options /etc/bind/
 # Run eternal loop
 #CMD ["/bin/bash", "-c", "while :; do sleep 10; done"]
 
-EXPOSE 53
+EXPOSE 5353
 
 CMD named -g

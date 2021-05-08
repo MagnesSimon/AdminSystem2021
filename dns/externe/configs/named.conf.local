@@ -19,14 +19,3 @@ zone "l1-5.ephec-ti.be" IN {
         file "/etc/bind/db.l1-5.ephec-ti.be";
 };
 
-#// reseau interne
-#view internal {
-#	match-clients {ip_interne;};
-#	recursion yes;
-#	allow-recursion {ip_interne;};
-#	zone "l1-5.ephec-ti.be" IN {
-#		type master;
-#		file "/etc/bind/db.internal.l1-5.ephec-ti.be";
-#	};
-#};
-

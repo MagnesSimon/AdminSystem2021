@@ -17,4 +17,3 @@ www                             IN      A       51.210.44.117
 @                               IN      A       51.210.44.117
 b2b                             IN      CNAME   www
 intranet                        IN      CNAME   www
-
