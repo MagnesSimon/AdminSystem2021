@@ -5,7 +5,7 @@ l1-5.ephec-ti.be.	IN	SOA	ns.l1-5.ephec-ti.be. HE201558@students.ephec.be. (
 		         2019031001	; Serial
 			 3600		; Refresh
 			  600		; Retry
-			86400		; Expire
+			1286400		; Expire
 			 600 )	; Negative Cache TTL
 
 @	IN	 NS	 ns

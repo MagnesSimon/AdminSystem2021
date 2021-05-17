@@ -1,9 +1,19 @@
 # Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
 
+        acl ip_interne {
+                localhost;
+                127.17.0.0/24;
+                51.210.44.117;
+        };
+
+
 options {
         directory "/var/cache/bind";
 	
 	allow-query {ip_interne;};	
+	recursion yes;
+	allow-recursion {ip_interne;};
+	allow-transfer { ip_interne; };
         // If there is a firewall between you and nameservers you want
         // to talk to, you may need to fix the firewall to allow multiple
         // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
@@ -25,7 +35,7 @@ options {
         dnssec-validation auto;
 
         auth-nxdomain no;    # conform to RFC1035
-        listen-on-v6 { any; };
+        listen-on-v6 { none; };
 };
 
 
