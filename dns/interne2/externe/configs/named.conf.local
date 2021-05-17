@@ -10,8 +10,8 @@
 
 
 // reseau externe
-zone "woodytoys.local.be" IN {
+zone "woodytoys.local." IN {
         type master;
-        file "/etc/bind/db.l1-5.ephec-ti.be";
+        file "/etc/bind/db.woodytoys.local.be";
 };
 

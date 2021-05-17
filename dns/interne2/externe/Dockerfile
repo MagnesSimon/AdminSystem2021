@@ -18,7 +18,7 @@ RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 
 # On copie les fichier de configuration
 
-COPY configs/db.l1-5.ephec-ti.be /etc/bind/
+COPY configs/db.woodytoys.local.be /etc/bind/
 
 #COPY etc/db.l1-5.ephec-ti.be /etc/bind/internal/
 
