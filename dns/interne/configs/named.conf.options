@@ -1,26 +1,23 @@
 # Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
 
-        acl "internals" {
-        localhost;    # ns1 - can be set to localhost
-        172.17.0.2;    # ns2
-        51.210.44.117;  # host1
+// Déclaration d'une access-list afin d'autoriser le traffic
+        acl ip_interne {
+                localhost;
+                172.17.0.0/24;
         };
 
 
 options {
-
+        // Indique le dossier dans lequels se trouvent tous les fichiers à charger.
         directory "/var/cache/bind";
 	
-	recursion yes;                 
-        #allow-recursion { internals; }; 
-        listen-on { internals; };  
-        allow-transfer { internals; };
+        // Options permettant d'autoriser les requetes venant de l'ACL
+        // Désactive la recursion
+        // N'autorise aucun transfert de zone.
+	allow-query {ip_interne;};	
+	recursion no;
+	allow-transfer { none; };
 
-	        // Accepter les requêtes pour le réseau interne uniquement
-        allow-query { internals; };
-
-        // Autoriser les requêtes récursives pour les hôtes locaux
-        allow-recursion { internals; };
 
         // If there is a firewall between you and nameservers you want
         // to talk to, you may need to fix the firewall to allow multiple
@@ -41,12 +38,10 @@ options {
         // you will need to update your keys.  See https://www.isc.org/bind-keys
         //========================================================================
         dnssec-validation auto;
-	
-        auth-nxdomain no;    # conform to RFC1035
-        listen-on-v6 { none; };
 
-	#allow-querry {localhost; 51.210.44.117;};
-	
+        auth-nxdomain no;    # conform to RFC1035
+        // Désactive l'IPv6
+        listen-on-v6 { none; };
 };
 
 

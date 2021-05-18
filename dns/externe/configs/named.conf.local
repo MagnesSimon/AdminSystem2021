@@ -8,14 +8,10 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-acl ip_interne {
-        127.0.0.0;
-        51.210.44.117;
-};
 
-// reseau externe
+// zone reseau externe
 zone "l1-5.ephec-ti.be" IN {
-        type master;
+        type master; 
         file "/etc/bind/db.l1-5.ephec-ti.be";
 };
 

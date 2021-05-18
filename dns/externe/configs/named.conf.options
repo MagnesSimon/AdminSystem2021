@@ -1,6 +1,8 @@
 # Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
 
+# Options utilisée pour la configuration du SOA
 options {
+        // Indique le dossier dans lequels se trouvent tous les fichiers à charger.
         directory "/var/cache/bind";
 
         // If there is a firewall between you and nameservers you want
@@ -24,7 +26,9 @@ options {
         dnssec-validation auto;
 
         auth-nxdomain no;    # conform to RFC1035
-        listen-on-v6 { any; };
+
+        // On désactive l'écoutes des adresses IPv6
+        listen-on-v6 { none; };
 };
 
 

@@ -8,10 +8,10 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "l1-5.ephec-ti.be" IN {
-	type master;
-	file "/etc/bind/db.l1-5.ephec-ti.be";
 
+// zone reseau interne
+zone "woodytoys.local." IN {
+        type master;
+        file "/etc/bind/db.woodytoys.local.be";
 };
-
 
