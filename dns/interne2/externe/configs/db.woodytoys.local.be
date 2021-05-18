@@ -9,12 +9,10 @@ woodytoys.local.		IN	SOA	ns.woodytoys.local. HE201558@students.ephec.be. (
 			 600 )	; Negative Cache TTL
 
 @	IN	 NS	 ns
-	IN	 A	 51.210.44.117
+	IN	 A	 127.0.0.1
 
 woodytoys.local.			IN	NS	ns.woodytoys.local.
-ns				IN	A	51.210.44.117
-www				IN	A	51.210.44.117
-@				IN	A	51.210.44.117
-b2b				IN	CNAME	www
-intranet			IN	A	51.210.44.117
+ns				IN	A	172.17.0.1
+@				IN	A	172.17.0.1
+intranet			IN	A	172.17.0.1
 
