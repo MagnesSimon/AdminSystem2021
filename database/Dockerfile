@@ -12,11 +12,11 @@ RUN ["/bin/bash", "-c", "debconf-set-selections <<< 'mysql-server mysql-server/r
 RUN mkdir /var/run/mysqld \
  && chown -R mysql:mysql /var/run/mysqld
 
-COPY config/DB.sql /tmp
-COPY config/setupDB /tmp
+COPY config/database.sql /tmp
+COPY config/setup /tmp
 
-RUN chmod u+x /tmp/setupDB
-RUN /tmp/setupDB
+RUN chmod u+x /tmp/setup
+RUN /tmp/setup
 
 COPY config/mysqld.cnf /etc/mysql/mysql.conf.d/
 
