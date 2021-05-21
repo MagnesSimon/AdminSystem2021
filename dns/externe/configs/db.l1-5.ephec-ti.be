@@ -18,11 +18,11 @@ www				IN	A	51.210.44.117
 @				IN	A	51.210.44.117
 b2b				IN	CNAME	www
 
-sip				IN	A	135.125.101.241
+sip				IN	A	135.125.101.223
 _sip._udp			SRV	0	0	5060	sip
 _sip._tcp			SRV	0	0	5060	sip
 
-mail		IN	A	135.125.101.223
+mail		IN	A	135.125.101.241
 smtp		IN	CNAME	mail
 pop3		IN	CNAME	mail
 imap		IN	CNAME	mail

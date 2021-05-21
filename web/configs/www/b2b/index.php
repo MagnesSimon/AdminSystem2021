@@ -1,5 +1,5 @@
 <?php 
-    $db = mysqli_connect('51.210.44.117:3306','adminS','admin','database_grp_5');
+    $db = mysqli_connect('51.210.44.117:3306','root','','database_grp_5');
     if (!$conn) {
         echo mysqli_connect_errno() . ":" . mysqli_connect_error();
         exit;

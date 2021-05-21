@@ -33,6 +33,7 @@ RUN mkdir /var/www/intranet.l1-5.ephec-ti.be
 
 COPY /configs/www/public/index.html /var/www/html/index.html
 COPY /configs/www/b2b/index.php /var/www/html/b2b.l1-5.ephec-ti.be/index.php
+COPY /configs/www/b2b/process.php /var/www/html/b2b.l1-5.ephec-ti.be/process.php
 COPY /configs/www/interne/index.html /var/www/html/intranet.l1-5.ephec-ti.be/index.html
 
 #Spécifie sur quel numéro de port le container doit faire tourner le processus

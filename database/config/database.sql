@@ -1,4 +1,4 @@
-CREATE USER 'adminS'@'localhost' IDENTIFIED BY 'admin';
+CREATE USER 'adminS'@'172.17.0.4' IDENTIFIED BY 'admin';
 CREATE USER 'adminT'@'172.17.0.1' IDENTIFIED BY 'admin';
 CREATE USER 'adminF'@'51.210.44.117' IDENTIFIED BY 'admin';
 
