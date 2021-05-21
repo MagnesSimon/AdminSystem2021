@@ -8,6 +8,7 @@ RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive
 RUN apt-get install -y postfix
 RUN apt-get install -y mailutils
 
+#copie des fichiers
 COPY ./postfix/main.cf /etc/postfix/
 COPY ./postfix/hosts /etc/
 COPY ./postfix/hostname /etc/
