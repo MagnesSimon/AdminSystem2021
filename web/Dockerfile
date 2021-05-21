@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+#test
+=======
 # Groupe 1 - Simon Magnes & François Temmerman & Thomas Namurois
 
 #A partir d'une image ubuntu
@@ -42,3 +45,4 @@ EXPOSE 80
 
 #précise qu'on veut que le serveur http run en background
 CMD apachectl -DFOREGROUND
+>>>>>>> 5437a54f1acdf7e265a3dbb2f7afbde2df0be13f
