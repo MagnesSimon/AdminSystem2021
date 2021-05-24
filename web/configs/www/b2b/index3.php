@@ -1,9 +1,9 @@
 <?php
 $mysql_config = parse_ini_file('mysql.ini');
 
-$hostname=$mysql_config['host'];;
-$user = $mysql_config['adminS'];;
-$password = $mysql_config['admin'];;
+$hostname=$mysql_config['172.17.0.3:3306'];;
+$user = $mysql_config['root'];;
+$password = $mysql_config['user123'];;
 $database = $mysql_config['database_grp_5'];;
 $table = "objet";
 ?>
@@ -23,13 +23,13 @@ $table = "objet";
 
 <?php
  try {
-    $db = new PDO("mysql:host=$hostname;dbname=$database", $user, $password);
+    $db = new mysqli("172.17.0.3:3306","root", "user123","database_grp_5");
     echo "<h2>TODO</h2><ol>";
     foreach($db->query("SELECT content FROM $table") as $row) {
       echo "<li>" . $row['content'] . "</li>";
     }
     echo "</ol>";
-  } catch (PDOException $e) {
+  } catch ( $e) {
       print "Error!: " . $e->getMessage() . "<br/>";
       die();
   }
