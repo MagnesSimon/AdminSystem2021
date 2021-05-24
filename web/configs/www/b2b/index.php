@@ -1,9 +1,16 @@
-<?php 
-    $db = mysqli_connect('51.210.44.117:3306','root','','database_grp_5');
-    if (!$conn) {
-        echo mysqli_connect_errno() . ":" . mysqli_connect_error();
-        exit;
-    }
+<?php
+$link = mysqli_connect("172.17.0.3:3306", "root", "user123", "database_grp_5");
+
+if (!$link) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+
+echo "Success: A proper connection to MySQL was made!" . PHP_EOL;
+echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+
 ?>
 <html>
 <head>
