@@ -13,8 +13,9 @@ RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get install -y apache2
 RUN apt-get install -y apache2-utils
-RUN apt-get install -y php php-mysql
-
+#RUN apt-get install -y php php-mysql
+RUN apt-get update
+RUN apt install php-fpm php-mysql -y && apt install mysql-server -y
 
 #Copie l'html de notre dossier dans le container docker
 
