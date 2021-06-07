@@ -21,38 +21,43 @@ readme_directory = no
 # fresh installs.
 compatibility_level = 2
 
-
-
 # TLS parameters
-smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
-smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
-smtpd_tls_security_level=may
-
-smtp_tls_CApath=/etc/ssl/certs
-smtp_tls_security_level=may
+smtpd_tls_cert_file=/etc/letsencrypt/live/l1-5.ephec-ti.be/fullchain.pem
+smtpd_tls_key_file=/etc/letsencrypt/live/l1-5.ephec-ti.be/privkey.pem
+smtpd_use_tls=yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 
-
+# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
+# information on enabling SSL in the smtp client.
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-<<<<<<< HEAD
+
+#Nom de la machine
 myhostname = mail.l1-5.ephec-ti.be
+
+#Domaine à afficher dans le mail sortant
 myorigin = l1-5.ephec-ti.be
+
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
-mydestination = $mydomain, $myhostname, debian.localdomain, localhost.localdomain, localhost
-relayhost = 
-mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 51.210.44.117
-=======
-myhostname = l1-5.ephec-ti.be
-alias_maps = hash:/etc/aliases
-alias_database = hash:/etc/aliases
-mydestination = $myhostname, localhost, localhost.localdomain
-relayhost =   
+
+#Le paramètre mydestination indique les domaines pour lesquels cette machine délivrera le courrier localement
+mydestination = $myhostname, l1-5.ephec-ti.be, localhost.localdomain, , localhost
+
+#passerelle pour pour la livraison du mail si la livraison direct n'est pas autorisé.
+relayhost =
+
+#relaie des courriers des réseaux / domaines autorisés
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
->>>>>>> e1d0c1927a84b1ca363ea49717f468b04b064407
+
+home_mailbox = Maildir/
 mailbox_size_limit = 0
 recipient_delimiter = +
-inet_interfaces = loopback-only
+
+#indique toutes les adresses d'interface réseau sur lesquelles le système Postfix doit écouter
+inet_interfaces = all
+
+#Les protocoles Internet que Postfix tentera d'utiliser lors de l'établissemen
 inet_protocols = all
- 
+
 
