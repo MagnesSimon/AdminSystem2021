@@ -1,5 +1,0 @@
-
-service mysql start
-mysql -u root
-mysql -u root < /tmp/database.sql
-mysqladmin -u root  shutdown

@@ -1,51 +1,59 @@
+<!DOCTYPE html>
+
 <?php
-$link = mysqli_connect("172.17.0.3:3306", "root", "user123");
-
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
-echo "Success: A proper connection to MySQL was made!" . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-
+    # Connexion à la base de données
+    $db= mysqli_connect('51.210.44.117:3306','admin','Passw0rd!','dbwoody') or die('Erreur de connection!');
 ?>
+
 <html>
-<head>
-	<title>B2B</title>
-</head>
-<body>
-	<?php 
-		echo "Ceci est la page en PHP";
-		$db = "database_grp_5";
-		$query = "SELECT * FROM objet";
-        mysqli_query($db, $query) or trigger_error(mysqli_error().$query);
-        $result = mysqli_query($db, $query);
-	
-	//if (!$mysqli -> query($query)) {
- 	//	 echo("Error description: " . $mysqli -> error);
-	//}
-
-	//$mysqli -> close()
-
-        //while ($row = mysqli_fetch_array($result)) {
-        //    echo $row['id'] . ': ' . $row['libelle'] . ' ' . $row['prix'] . ' <br />';
-        //}
-	try {
-		foreach($db->query("SELECT content FROM $table") as $row) {
-			echo "<li>" . $row['content'] . "</li>";
-		}
-		echo "</ol>";
-	} catch (PDOException $e) {
-		print "Error!: " . $e->getMessage() . "<br/>";
-	die();
-	}
-
- echo '</body>';
- echo '</html>';
-
+  <head>
+    <meta charset = "UTF-8">
+    <title>Site Web b2b WoddyToys</title>
+  </head>
+  
+  <body>
+    <h1>Site Web interne WoddyToys</h1>
+    
+    <?php
+        $query = "SELECT * FROM objet";             # Directive sql permettant de séléctionner tous les éléments de la table "objet".
+        mysqli_query($db, $query) or die('erreur');
+        $affichage = mysqli_query($db, $query);
+        
+	# Boucle permettant l'affichage en "liste" des différents jouets présents dans la base de données.
+        while ($row = mysqli_fetch_array($affichage)) {
+            echo $row['id'] . ': ' . $row['nom'] . ' ' . $row['prix'] . ' <br />';
+        }
+        
+	# Condition permettant lors du "submit" du boutton du formulaire html en dessous, d'envoyer les données rentrées dans ce formulaire dans la base de données.
+        if (isset($_POST['submit'])) {
+     
+        $nom = $_POST["nom"];      # Définit les variables en fonction des valeurs rentrées pour nom et prix dans le formulaire avec la méthode POST.
+	$prix = $_POST["prix"]; 
+      
+        $sql = "INSERT INTO objet (nom, prix) VALUES (?,?)";     # Directive sql permettant d'insérer un nouvel élément dans la table "jouets" de la base de données.
+        $stmt= $db->prepare($sql);
+        $stmt->bind_param("si", $nom, $prix);                     # Le premier paramètre de "bind_param()" ici "si" permet de spécifier le type de chacune des variables(s = string, i = integer).   
+        $stmt->execute();					  # Exécution de la dirctive sql.
+            
+        } 
+      
+        mysqli_close($db);
+        
     ?>
-</body>
+      
+      # Formulaire html d'ajout de jouets dans la base de données.
+      <div style="float:right">
+          <a>Ajouter un objets au catalogue</a><br><br>
+          <form method="POST">  
+              nom:<br>
+              <input type="text" name="nom"><br>
+              prix:<br>
+              <input type="number" name="prix"><br>
+              <br><br>
+              <input type="submit" name="submit" value="Envoyer">
+          </form>
+      </div>
+    
+  </body>
+
 </html>

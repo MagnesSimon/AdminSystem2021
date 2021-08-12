@@ -1,7 +1,12 @@
-# Groupe L1-5 Magnes Simon - Namurois Thomas - Temmerman François
+# Groupe L1-5 Magnes Simon - Namurois Thomas
 
+#MYSQL_ROOT_PASSWORD=secret
 
-FROM ubuntu:latest
-RUN apt update && apt upgrade -y && apt install mysql-server -y
+From mysql:latest
 
-COPY ./mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN apt update && apt-get upgrade -y
+RUN apt-get install nano -y
+
+WORKDIR /etc/
+
+COPY ./config/ /docker_entrypoint-initdb.d/
