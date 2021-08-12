@@ -9,6 +9,7 @@ COPY config/l1-5.ephec-ti.be.conf /etc/apache2/sites-available
 COPY config/b2b.l1-5.ephec-ti.be.conf /etc/apache2/sites-available
 COPY config/intranet.l1-5.ephec-ti.be.conf /etc/apache2/sites-available
 
+# lien entre sites-available et sitesenabled
 RUN ln -s /etc/apache2/sites-available/l1-5.ephec-ti.be.conf /etc/apache2/sites-enabled
 RUN ln -s /etc/apache2/sites-available/b2b.l1-5.ephec-ti.be.conf /etc/apache2/sites-enabled
 RUN ln -s /etc/apache2/sites-available/intranet.l1-5.ephec-ti.be.conf /etc/apache2/sites-enabled
