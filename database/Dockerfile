@@ -9,4 +9,4 @@ RUN apt-get install nano -y
 
 WORKDIR /etc/
 
-COPY ./config/ /docker_entrypoint-initdb.d/
+COPY ./config/ /docker-entrypoint-initdb.d/

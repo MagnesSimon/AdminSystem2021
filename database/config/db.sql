@@ -1,10 +1,35 @@
 CREATE DATABASE dbwoody;
 
-CREATE USER admin IDENTIFIED WITH mysql_native_password BY 'Passw0rd!';
+CREATE USER admin IDENTIFIED WITH mysql_native_password BY 'Password';
 
-GRANT ALL PRIVILEGES ON dbwoody.* TO 'admin';
+GRANT ALL PRIVILEGES ON dbwoody.* TO 'admin'@'%';
 
-CREATE TABLE objet (id INTEGER NOT NULL AUTO-INCREMENT, nom varchar(255) NOT NULL, prix INTEGER NOT NULL, CONSTRAINT pk_objet PRIMARY KEY(id));
+USE dbwoody;
 
-INSERT INTO objet (nom, prix)
-VALUE ('toupie, 5), (lego, 15),(manette, 60);
+--
+-- Base de données : `dbwoody`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `objet`
+--
+
+DROP TABLE IF EXISTS `objet`;
+CREATE TABLE IF NOT EXISTS `objet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `prix` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+--
+-- Déchargement des données de la table `objet`
+--
+
+INSERT INTO `objet` (`id`, `nom`, `prix`) VALUES
+(1, 'toupie', 5),
+(2, 'lego', 15),
+(3, 'manette', 60);
+
