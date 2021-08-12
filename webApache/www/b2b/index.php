@@ -41,7 +41,7 @@
         
     ?>
       
-      # Formulaire html d'ajout de jouets dans la base de données.
+      <!-- Formulaire html d'ajout de jouets dans la base de données. -->
       <div style="float:right">
           <a>Ajouter un objets au catalogue</a><br><br>
           <form method="POST">  
