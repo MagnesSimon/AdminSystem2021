@@ -13,8 +13,9 @@ RUN apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get install -y apache2
 RUN apt-get install -y apache2-utils
-RUN apt-get install -y php php-mysql
-
+#RUN apt-get install -y php php-mysql
+RUN apt-get update
+RUN apt install php-fpm php-mysql -y && apt install mysql-server -y
 
 #Copie l'html de notre dossier dans le container docker
 
@@ -34,7 +35,7 @@ RUN mkdir /var/www/intranet.l1-5.ephec-ti.be
 
 COPY /configs/www/public/index.html /var/www/html/index.html
 COPY /configs/www/b2b/index.php /var/www/html/b2b.l1-5.ephec-ti.be/index.php
-COPY /configs/www/b2b/process.php /var/www/html/b2b.l1-5.ephec-ti.be/process.php
+#COPY /configs/www/b2b/process.php /var/www/html/b2b.l1-5.ephec-ti.be/process.php
 COPY /configs/www/interne/index.html /var/www/html/intranet.l1-5.ephec-ti.be/index.html
 
 #Spécifie sur quel numéro de port le container doit faire tourner le processus

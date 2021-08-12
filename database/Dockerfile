@@ -1,25 +1,12 @@
-# Groupe L1-5 Magnes Simon - Namurois Thomas - Temmerman François
+# Groupe L1-5 Magnes Simon - Namurois Thomas
 
-FROM ubuntu:18.04
+#MYSQL_ROOT_PASSWORD=secret
 
-RUN apt update 
-RUN apt upgrade -y 
-RUN apt install -y mysql-server nano
+From mysql:latest
 
-RUN ["/bin/bash", "-c", "debconf-set-selections <<< 'mysql-server mysql-server/root_password password xxx'"]
-RUN ["/bin/bash", "-c", "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password xxx'"]
+RUN apt update && apt-get upgrade -y
+RUN apt-get install nano -y
 
-RUN mkdir /var/run/mysqld \
- && chown -R mysql:mysql /var/run/mysqld
+WORKDIR /etc/
 
-COPY config/database.sql /tmp
-COPY config/setup /tmp
-
-RUN chmod u+x /tmp/setup
-RUN /tmp/setup
-
-COPY config/mysqld.cnf /etc/mysql/mysql.conf.d/
-
-EXPOSE 3306
-
-CMD mysqld_safe
+COPY ./config/ /docker-entrypoint-initdb.d/
