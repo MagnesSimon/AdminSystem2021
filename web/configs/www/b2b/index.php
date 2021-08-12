@@ -8,11 +8,11 @@
 <html>
   <head>
     <meta charset = "UTF-8">
-    <title>Site Web b2b WoddyToys</title>
+    <title>Site Web b2b WoodyToys</title>
   </head>
   
   <body>
-    <h1>Site Web interne WoddyToys</h1>
+    <h1>Site Web b2b WoodyToys</h1>
     
     <?php
         $query = "SELECT * FROM objet";             # Directive sql permettant de séléctionner tous les éléments de la table "objet".
