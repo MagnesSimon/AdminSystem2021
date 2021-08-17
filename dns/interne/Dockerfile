@@ -17,7 +17,8 @@ RUN apt-get install -y bind9-doc
 RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 
 # On copie les fichier de configuration
-COPY configs/db.woodytoys.local.be /etc/bind/
+COPY configs/db.woodytoys.local.be /etc/bind/master/
+COPY configs/0.17.172.in-addr.arpa /etc/bind/master/
 COPY configs/named.conf /etc/bind/
 COPY configs/named.conf.local /etc/bind/
 COPY configs/named.conf.options /etc/bind/

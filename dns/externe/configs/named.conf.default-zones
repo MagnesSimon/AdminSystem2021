@@ -18,11 +18,11 @@ view "default" {
 	        file "/etc/bind/db.127";
 	};
 	zone "0.in-addr.arpa" {
-        	type master;
-        	file "/etc/bind/db.0";
+		type master;
+		file "/etc/bind/db.0";
 	};
 	zone "255.in-addr.arpa" {
-        	type master;
-        	file "/etc/bind/db.255";
+		type master;
+		file "/etc/bind/db.255";
 	};
 };
