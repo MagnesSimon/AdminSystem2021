@@ -8,6 +8,8 @@ RUN apt-get install net-tools -y
 
 RUN useradd -ms /bin/bash direction
 
-USER direction
+COPY resolv.conf /etc/resolv.conf
+
+
 
 CMD tail -f /dev/null
