@@ -1,0 +1,16 @@
+$ORIGIN 0.16.172.in-addr.arpa.
+$TTL 604800
+@       IN      SOA     ns.woodytoys.intranet.     he201541@students.ephec.be (
+                        2001062501 ; serial
+                        604800 ; Refresh
+                        86400 ; Retry
+                        2419200 ; Expire
+                        604800 ) ; Negative Cache TTL
+                        
+                        
+        IN      NS      ns.woodytoys.intranet.
+        
+4       IN      PTR     resolv.woodytoys.intranet.
+5       IN      PTR     portail.woodytoys.intranet.
+2       IN      PTR     db.woodytoys.intranet.
+3       IN      PTR     ns.woodytoys.intranet.

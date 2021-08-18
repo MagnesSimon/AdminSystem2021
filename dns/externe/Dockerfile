@@ -21,6 +21,8 @@ COPY configs/named.conf /etc/bind/
 COPY configs/named.conf.local /etc/bind/
 COPY configs/named.conf.options /etc/bind/
 
+WORKDIR /etc/bind/
+
 # Ouverture du port 53
 EXPOSE 53
 

@@ -1,0 +1,15 @@
+$ORIGIN woodytoys.intranet.
+$TTL 604800
+@     IN     SOA    ns.woodytoys.intranet.     he201541@students.ephec.be (
+                    2001062501 ; serial
+                    604800 ; Refresh
+                    86400 ; Retry
+                    2419200 ; Expire
+                    604800 ) ; Negative Cache TTL
+
+
+woodytoys.intranet.      IN     NS     ns.woodytoys.intranet.
+
+ns           IN     A       172.19.20.3
+resolv       IN     A       172.19.20.4
+portail		IN	A	172.19.20.5
