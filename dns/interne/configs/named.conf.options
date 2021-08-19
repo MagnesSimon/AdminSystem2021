@@ -3,7 +3,11 @@
 // Déclaration d'une access-list afin d'autoriser le traffic
         acl ip_interne {
                 localhost;
+		127.0.0.0/24;
                 172.17.0.0/24;
+		172.18.10.0/24;
+		172.18.20.0/24;
+		172.18.30.0/24;
         };
 
 
@@ -14,7 +18,7 @@ options {
         // Options permettant d'autoriser les requetes venant de l'ACL
         // Désactive la recursion
         // N'autorise aucun transfert de zone.
-	allow-query {ip_interne;};	
+	allow-query {any;};	
 	recursion no;
 	allow-transfer { none; };
 

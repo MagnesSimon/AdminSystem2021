@@ -13,5 +13,6 @@
 zone "l1-5.ephec-ti.be" IN {
         type master; 
         file "/etc/bind/db.l1-5.ephec-ti.be";
+
 };
 

@@ -1,0 +1,13 @@
+$ORIGIN 0.16.172.in-addr.arpa.
+$TTL 604800
+@       IN      SOA     ns.woodytoys.local.     simon.woodytoys.local. (
+                        2001062501 ; serial
+                        604800 ; Refresh
+                        86400 ; Retry
+                        2419200 ; Expire
+                        604800 ) ; Negative Cache TTL
+                        
+                        
+        IN      NS      ns.woodytoys.local.
+        
+1       IN      PTR     ns.woodytoys.local.
