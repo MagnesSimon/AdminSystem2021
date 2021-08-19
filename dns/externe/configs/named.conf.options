@@ -25,11 +25,15 @@ options {
         //========================================================================
         dnssec-enable yes;
 	dnssec-validation yes;
+
 	dnssec-lookaside auto;
 	
 	allow-query{ any; };
 	allow-recursion { none; };
 	allow-transfer { none; };
+
+	dnssec-lookaside auto;	
+
 	recursion no;
 
         auth-nxdomain no;    # conform to RFC1035

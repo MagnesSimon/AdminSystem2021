@@ -12,23 +12,10 @@ RUN apt-get install -y telnet
 #installation de telnet pour se connecter au port nécessaire
 RUN apt-get install -y nano 
 #pour la modification des fichiers de configuration en cas de besoin (pour le certificat par exemple)
+RUN apt-get install net-tools -y
 
-#installation postfix
 RUN apt-get install -y postfix
 
-#installation dovecot
-#RUN apt-get install -y dovecot-imapd
-#RUN apt-get install -y dovecot-pop3d
-
-#copy des configurations postfix adapté
-COPY ./postfix/main.cf /etc/postfix/
-COPY ./postfix/master.cf /etc/postfix/
-COPY ./postfix/virtual /etc/postfix/
-
-#copy des configurations dovecot adapté
-#COPY ./dovecot/dovecot.conf /etc/dovecot/
-#COPY ./dovecot/conf.d/10-auth.conf /etc/dovecot/conf.d/
-
-EXPOSE 25
+EXPOSE 25 110 143
 
 CMD /bin/bash
