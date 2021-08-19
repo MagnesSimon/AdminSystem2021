@@ -1,4 +1,3 @@
-
 FROM ubuntu:latest
 
 #installation des outils nécessaires
@@ -13,7 +12,7 @@ RUN apt-get update && apt-get install mutt -y
 COPY resolv.conf /etc/resolv.conf
 
 #Création d'un utilisateur
-RUN useradd -ms /bin/bash production
+RUN useradd -ms /bin/bash commerciaux
 
 
 CMD tail -F /dev/null

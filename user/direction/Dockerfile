@@ -1,24 +1,18 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y 
-<<<<<<< HEAD
+#installation des outils nécessaires
+RUN apt-get update && apt-get install -y
 RUN apt-get install dnsutils net-tools iputils-ping -y
+RUN apt-get install lynx -y
 RUN apt-get install nano -y
-RUN apt-get install curl elinks -y
-=======
-RUN apt-get install -y dnsutils net-tools iputils-ping
-RUN apt-get install -y curl elinks
-RUN apt-get install vim -y
-RUN apt-get install net-tools -y
->>>>>>> 96b695a23a70b93e247912b09403ccb832390843
+RUN apt-get install mailutils -y
+RUN apt-get update && apt-get install mutt -y
 
-RUN useradd -ms /bin/bash direction
-
+#ajout du nameserver vers le dns int
 COPY resolv.conf /etc/resolv.conf
 
-<<<<<<< HEAD
-=======
+#Création d'un utilisateur
+RUN useradd -ms /bin/bash direction
 
 
->>>>>>> 96b695a23a70b93e247912b09403ccb832390843
-CMD tail -f /dev/null
+CMD tail -F /dev/null

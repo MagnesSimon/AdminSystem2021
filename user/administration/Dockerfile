@@ -8,15 +8,11 @@ RUN apt-get install nano -y
 RUN apt-get install mailutils -y
 RUN apt-get update && apt-get install mutt -y
 
-
+#Permet l'ajout du nameserver correspondant au dns
 COPY resolv.conf /etc/resolv.conf
-
-#RUN mkdir /var/spool/mail/$USER
 
 #Création d'un utilisateur
 RUN useradd -ms /bin/bash administration
 
-#Connection à l'utilisateur créé
-#USER administration
 
 CMD tail -F /dev/null

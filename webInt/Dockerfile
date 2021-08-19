@@ -17,5 +17,5 @@ RUN mkdir /var/www/portail.woodytoys.intranet
 # copier des fichier à affihcer contenant les pages web
 COPY /www/index.php /var/www/portail.woodytoys.intranet/index.php
 
-RUN a2enmod ssl
+
 
