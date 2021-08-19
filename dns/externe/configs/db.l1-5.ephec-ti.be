@@ -1,12 +1,12 @@
 $ORIGIN l1-5.ephec-ti.be.
-$TTL	604800
+$TTL	3600
 l1-5.ephec-ti.be.	IN	SOA	ns.l1-5.ephec-ti.be. HE201558@students.ephec.be. (
 
-		         10		; Serial
-			 604800		; Refresh
-			  86400		; Retry
-			2419200		; Expire
-			 604800 )	; Negative Cache TTL
+		         2019031001	; Serial
+			 3600		; Refresh
+			  600		; Retry
+			1286400		; Expire
+			 600 )	; Negative Cache TTL
 
 ;Nom de serveur faisant autorité sur le domaine l1-5.ephec-ti.be.
 l1-5.ephec-ti.be.		IN	NS	ns.l1-5.ephec-ti.be.
@@ -27,7 +27,6 @@ _sip._tcp			SRV	0	0	5060	sip
 ;serveur mail
 mail		IN	A	135.125.101.241
 @		IN	MX	10	mail.l1-5.ephec-ti.be.
-@      		IN          TXT     "v=spf1 a mx ~all"
 smtp		IN	CNAME	mail
 pop3		IN	CNAME	mail
 imap		IN	CNAME	mail
