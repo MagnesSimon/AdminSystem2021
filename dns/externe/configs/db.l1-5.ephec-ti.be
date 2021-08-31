@@ -30,3 +30,4 @@ mail		IN	A	135.125.101.241
 smtp		IN	CNAME	mail
 pop3		IN	CNAME	mail
 imap		IN	CNAME	mail
+@              IN      TXT "v=spf1 a ~all"
